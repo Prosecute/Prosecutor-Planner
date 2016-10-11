@@ -1,3 +1,4 @@
+import prosecutor.planner.Planner;
 import prosecutor.planner.PlannerOptions;
 import prosecutor.planner.TaskTemplate;
 
@@ -34,5 +35,7 @@ public class RuntimeTest {
                 add(template);
             }};
         }};
+        Planner planner = new Planner(options);
+
     }
 }
