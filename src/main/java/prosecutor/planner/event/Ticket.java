@@ -8,7 +8,6 @@ import java.util.Set;
  */
 public final class Ticket {
 
-    protected static int           _currentTicket =   -1;
 
     public final     Set<Observer> Observers      =   new HashSet<>();
     public final     int           TicketID;

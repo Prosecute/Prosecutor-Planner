@@ -1,6 +1,8 @@
 package prosecutor.planner;
 
 
+import prosecutor.planner.storage.jpa.TaskEntity;
+
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,18 +14,21 @@ import java.util.concurrent.atomic.AtomicLong;
 public class Task {
 
     //region VARIABLES
+    protected final TaskEntity    _task;
+
     private   ProcessBuilder _processBuilder = null;
     protected Process        _process        = null;
     public    AtomicBoolean  Running         = null;
-    public    AtomicLong     RunnedTime     = null;
+    public    AtomicLong     RunnedTime      = null;
     public    AtomicLong     StartTime       = null;
     public    AtomicInteger  ExitCode        = null;
     public    AtomicBoolean  Started         = new AtomicBoolean(false);
     //endregion
 
     //region CONSTRUCTORS
-    protected Task(TaskTemplate definition){
-        this._processBuilder = definition._processBuilder;
+    protected Task(TaskEntity entity){
+        this._processBuilder = new ProcessBuilder();
+        this._task=entity;
     }
     //endregion
 
